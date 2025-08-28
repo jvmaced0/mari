@@ -2,32 +2,71 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Typing Animation</title>
+<title>Typing Reveal</title>
 <style>
   body {
-    background-color: black;
-    color: #00ff99;
-    font-family: monospace;
+    margin: 0;
+    height: 100vh;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    font-family: monospace;
+    color: #00ff99;
+    background: linear-gradient(270deg, #ff007f, #00ff99, #007fff);
+    background-size: 600% 600%;
+    animation: gradientBG 15s ease infinite;
+  }
+
+  @keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
+  #emoji {
+    font-size: 4rem;
+    cursor: pointer;
+    margin-bottom: 20px;
+    display: inline-block;
+    transform: rotate(180deg); /* de cabeça para baixo */
+    transition: transform 0.2s;
+  }
+
+  #emoji:hover {
+    transform: rotate(180deg) scale(1.2);
   }
 
   #msg {
-    border-right: 0.1em solid #00ff99;
     white-space: nowrap;
     overflow: hidden;
-    animation: typing 8s steps(100, end) infinite;
+    border-right: 0.1em solid #00ff99;
+    width: 0; /* começa escondido */
   }
 
   @keyframes typing {
     from { width: 0 }
     to { width: 100% }
   }
+
+  #msg.show {
+    animation: typing 6s steps(100, end) forwards;
+  }
 </style>
 </head>
 <body>
-<div id="msg">Que você conquiste todas as coisas que ninguém sabe que está tentando 🧑🏽‍💻🎀</div>
+
+<div id="emoji">🧑🏽‍💻🎀</div>
+<div id="msg">Que você consiga todas as coisas que ninguém sabe que está tentando.</div>
+
+<script>
+  const emoji = document.getElementById('emoji');
+  const msg = document.getElementById('msg');
+
+  emoji.addEventListener('click', () => {
+    msg.classList.add('show');
+  });
+</script>
+
 </body>
 </html>
