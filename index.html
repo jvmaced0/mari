@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Typing Reveal</title>
+<title>Frase com Emoji</title>
 <style>
   body {
     margin: 0;
@@ -13,6 +13,7 @@
     align-items: center;
     font-family: monospace;
     color: #00ff99;
+    text-align: center;
     background: linear-gradient(270deg, #ff007f, #00ff99, #007fff);
     background-size: 600% 600%;
     animation: gradientBG 15s ease infinite;
@@ -26,38 +27,30 @@
 
   #emoji {
     font-size: 4rem;
-    cursor: pointer;
     margin-bottom: 20px;
-    display: inline-block;
-    transform: rotate(180deg); /* de cabeça para baixo */
+    cursor: pointer;
     transition: transform 0.2s;
   }
 
   #emoji:hover {
-    transform: rotate(180deg) scale(1.2);
+    transform: scale(1.2);
   }
 
   #msg {
-    white-space: nowrap;
-    overflow: hidden;
-    border-right: 0.1em solid #00ff99;
-    width: 0; /* começa escondido */
-  }
-
-  @keyframes typing {
-    from { width: 0 }
-    to { width: 100% }
+    display: none; /* escondido inicialmente */
+    font-size: 1.2rem;
+    max-width: 90%;
   }
 
   #msg.show {
-    animation: typing 6s steps(100, end) forwards;
+    display: block; /* aparece ao clicar */
   }
 </style>
 </head>
 <body>
 
-<div id="emoji">🧑🏽‍💻🎀</div>
-<div id="msg">Que você consiga todas as coisas que ninguém sabe que está tentando.</div>
+<div id="emoji">👩🏽‍💻🎀</div>
+<div id="msg">Hello, this is a typing animation! Que você consiga todas as coisas que ninguém sabe que está tentando.</div>
 
 <script>
   const emoji = document.getElementById('emoji');
