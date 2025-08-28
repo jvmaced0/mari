@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Frase com Emoji</title>
+<style>
+  body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: monospace;
+    color: #00ff99;
+    text-align: center;
+    background: linear-gradient(270deg, #ff007f, #00ff99, #007fff);
+    background-size: 600% 600%;
+    animation: gradientBG 15s ease infinite;
+  }
+
+  @keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
+  #emoji {
+    font-size: 4rem;
+    margin-bottom: 20px;
+    cursor: pointer;
+    transition: transform 0.2s;
+  }
+
+  #emoji:hover {
+    transform: scale(1.2);
+  }
+
+  #msg {
+    display: none; /* escondido inicialmente */
+    font-size: 1.2rem;
+    max-width: 90%;
+  }
+
+  #msg.show {
+    display: block; /* aparece ao clicar */
+  }
+</style>
+</head>
+<body>
+
+<div id="emoji">👩🏽‍💻🎀</div>
+<div id="msg">Que você consiga todas as coisas que ninguém sabe que está tentando.</div>
+
+<script>
+  const emoji = document.getElementById('emoji');
+  const msg = document.getElementById('msg');
+
+  emoji.addEventListener('click', () => {
+    msg.classList.add('show');
+  });
+</script>
+
+</body>
+</html>
